@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Counter from './Counter';
+import Counter from './components/Counter';
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
       <Counter />
       <View style={styles.footer}>
         <Text style={styles.footerText}>Programación Móvil</Text>
-        <Text style={styles.footerText}>Paralelo: A</Text>
+        <Text style={styles.footerText}>Paralelo: B</Text>
         <Text style={styles.footerText}>Estudiante: Luis Alvarez</Text>
       </View>
     </View>
