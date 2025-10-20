@@ -1,53 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-//Tarea agregar un boton reiniciar , el boton reiniciar debe estar en blanco , y cuando se aplasta el reiniciar el texto del cero debe ser negro
+import { StyleSheet, Text, View } from 'react-native';
+import Counter from './Counter';
+
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount(prevCount => prevCount + 1);
-  }
-  const decrement = () => {
-    setCount(prevCount => prevCount - 1);
-  }
-
-  const counterStyle = {
-    fontSize: 100,
-    color: count > 0 ? '#10B981' : '#EF4444'
-  }
-
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.card}>
-        <Text style={styles.title}>Contador</Text>
-        <Text style={styles.subtitle}>Presiona los botones para cambiar el valor</Text>
-        <View style={styles.counterContainer}>
-          <Text style={counterStyle}>{count}</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={increment}
-            style={[
-              styles.button,
-              styles.incrementButton
-            ]}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.buttonText}>+</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={decrement}
-            style={[
-              styles.button,
-              styles.decrementButton
-            ]}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.buttonText}>-</Text>
-          </TouchableOpacity>
-        </View>
+      <Counter />
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>Programación Móvil</Text>
+        <Text style={styles.footerText}>Paralelo: A</Text>
+        <Text style={styles.footerText}>Estudiante: Luis Alvarez</Text>
       </View>
     </View>
   );
@@ -58,63 +21,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F3F4F6',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: 20,
   },
-  card: {
+  footer: {
     width: '100%',
-    maxWidth: 400,
-    backgroundColor: 'white',
-    borderRadius: 24,
-    padding: 32,
+    paddingVertical: 20,
     alignItems: 'center',
-    shadowColor: '#0000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.10,
-    shadowRadius: 20,
-    elevation: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#1F2937',
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#1F2937',
-    marginBottom: 32,
-    textAlign: 'center',
-  },
-  counterContainer: {
-    marginBottom: 40,
-    minHeight: 120,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonContainer: {
-    width: '100%',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-  },
-  button: {
-    flex: 1,
-    marginHorizontal: 10,
-    paddingVertical: 16,
+    backgroundColor: '#1F2937',
     borderRadius: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 20,
   },
-  incrementButton: {
-    backgroundColor: '#10B981',
+  footerText: {
+    fontSize: 14,
+    color: '#FFFFFF',
+    marginVertical: 2,
   },
-  decrementButton: {
-    backgroundColor: '#EF4444',
-  },
-  buttonText: {
-    fontSize: 40,
-    color: 'white',
-    fontWeight: 'bold',
-    lineHeight: 40,
-  }
 });
